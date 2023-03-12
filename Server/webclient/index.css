@@ -1,0 +1,13 @@
+body {
+    background-color: grey;
+}
+#messages {
+    background-color: darkgray;
+    height: 60%;
+    overflow: scroll;
+    white-space: nowrap;
+}
+#input {
+    background-color: darkgray;
+    width: 80%;
+}
