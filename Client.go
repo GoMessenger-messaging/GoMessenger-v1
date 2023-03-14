@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"os"
@@ -24,7 +24,7 @@ func checkUname(uname string, urlStr string) bool {
 	}
 	defer resp.Body.Close()
 
-	ret, _ := ioutil.ReadAll(resp.Body)
+	ret, _ := io.ReadAll(resp.Body)
 	fmt.Print("\n - ", string(ret), "\n\n")
 
 	if string(ret) == "Registered successfully" {
@@ -41,14 +41,14 @@ func getMessages() {
 	}
 	defer resp.Body.Close()
 
-	ret, _ := ioutil.ReadAll(resp.Body)
+	ret, _ := io.ReadAll(resp.Body)
 	fmt.Print("\n", string(ret), "\n\n")
 }
 func ping() {
 	for true {
 		http.Get(urlStr + "ping?name=" + url.QueryEscape(uname))
+		time.Sleep(5 * time.Minute)
 	}
-	time.Sleep(5 * time.Minute)
 }
 
 func Server() {
@@ -57,10 +57,10 @@ func Server() {
 		urlStr, _ = reader.ReadString('\n')
 		urlStr = strings.TrimRight(urlStr, "\r\n")
 		if urlStr == ":h" {
-			fmt.Print("\n - You may enter the url in the format 'http://{ip}:{port}/' (port only if needed)\n - As of 1/19/2023 'http://gomessenger.eu-central-1.elasticbeanstalk.com/' is the official, main server\n - :d for the official server\n\n")
+			fmt.Print("\n - You may enter the url in the format 'http://{ip}:{port}/' (port only if needed)\n - As of 14/3/2023 (d/m/y) 'https://gomessenger.link/' is the official server\n - :d for the official server\n\n")
 		} else {
 			if urlStr == ":d" {
-				urlStr = "http://gomessenger.eu-central-1.elasticbeanstalk.com/"
+				urlStr = "https://gomessenger.link/"
 			}
 			_, err := http.Get(urlStr)
 			if err != nil {
@@ -104,7 +104,7 @@ func Channel() {
 }
 
 func main() {
-	fmt.Print(" --- Welcome to Jeroen's Messenger - v1.0.0 --- \n\n")
+	fmt.Print(" --- Welcome to Jeroen's Messenger - v1.1.0 --- \n\n")
 	Server()
 	Username()
 	Channel()
