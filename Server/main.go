@@ -8,7 +8,6 @@ import (
 
 // These are the server's settings
 var httpport string = ":8080"
-var httpsport string = ":8443"
 var timezone string = "Europe/Zurich"
 var blacklist = [...]string{
     // List of blacklisted substrings
@@ -107,5 +106,4 @@ func main() {
 	http.HandleFunc("/webclient/index.js", func(w http.ResponseWriter, r *http.Request) { http.ServeFile(w, r, "webclient/index.js") })
 	http.HandleFunc("/webclient/inputEventListener.js", func(w http.ResponseWriter, r *http.Request) { http.ServeFile(w, r, "webclient/inputEventListener.js") })
 	http.ListenAndServe(httpport, nil)
-	//http.ListenAndServeTLS(httpsport, cert, key, nil)
 }
