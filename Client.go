@@ -57,10 +57,10 @@ func Server() {
 		urlStr, _ = reader.ReadString('\n')
 		urlStr = strings.TrimRight(urlStr, "\r\n")
 		if urlStr == ":h" {
-			fmt.Print("\n - You may enter the url in the format 'http://{ip}:{port}/' (port only if needed)\n - As of 14/3/2023 (d/m/y) 'https://gomessenger.link/' is the official server\n - :d for the official server\n\n")
+			fmt.Print("\n - You may enter the url in the format 'http://{ip}:{port}/' (port only if needed)\n - As of 18/9/2023 (d/m/y) 'https://old.gomessenger.link/' is the official server\n - :d for the official server\n\n")
 		} else {
 			if urlStr == ":d" {
-				urlStr = "https://gomessenger.link/"
+				urlStr = "https://old.gomessenger.link/"
 			}
 			_, err := http.Get(urlStr)
 			if err != nil {
