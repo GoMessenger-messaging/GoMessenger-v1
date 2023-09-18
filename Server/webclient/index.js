@@ -4,9 +4,9 @@ let state = 0; //0=Name, 1=Channel, 2=Operational
 let timer = 5;
 let updateRunning = false;
 const help = [
-    " - You may change your username at any time<br> - You may choose a username that is still available on the server",
-    " - You may join any channel that exists on the server<br> - You may create a new channel by entering a name that is not taken",
-    " - ':cu' to get the current username<br> - ':cc' to get the current channel<br> - ':u' to change your username<br> - ':c' to change the channel<br> - ':r' to manually check for new messages"
+    "<p> - You may change your username at any time<br> - You may choose a username that is still available on the server<br> - Still need help? Write an email to <a href=mailto:contact@gomessenger.link>contact@gomessenger.link</a></p>",
+    "<p> - You may join any channel that exists on the server<br> - You may create a new channel by entering a name that is not taken<br> - Still need help? Write an email to <a href=mailto:contact@gomessenger.link>contact@gomessenger.link</a></p>",
+    "<p> - ':cu' to get the current username<br> - ':cc' to get the current channel<br> - ':u' to change your username<br> - ':c' to change the channel<br> - ':r' to manually check for new messages<br> - Still need help? Write an email to <a href=mailto:contact@gomessenger.link>contact@gomessenger.link</a></p>"
 ];
 
 function ping(){
@@ -93,7 +93,7 @@ function send() {
                 document.getElementById("messages").innerHTML = channel;
                 timer = 0;
             } else if (input === ":u") {
-                document.getElementById("messages").innerHTML = "Input name";
+                document.getElementById("messages").innerHTML = "Input username";
                 state = 0;
             } else if (input === ":c") {
                 document.getElementById("messages").innerHTML = "Input channel";
