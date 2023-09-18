@@ -1,11 +1,14 @@
-body {
+html, body {
     background-color: grey;
+    height: 100%;
 }
 #messages {
     background-color: darkgray;
-    height: 60%;
+    height: 75%;
     overflow: scroll;
     white-space: nowrap;
+    display: flex;
+    flex-direction: column-reverse;
 }
 #input {
     background-color: darkgray;
